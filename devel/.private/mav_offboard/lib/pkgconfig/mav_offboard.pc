@@ -1,8 +1,0 @@
-prefix=/home/chen/mav_px4/devel/.private/mav_offboard
-
-Name: mav_offboard
-Description: Description of mav_offboard
-Version: 0.0.0
-Cflags: -I/home/chen/mav_px4/devel/.private/mav_offboard/include -I/home/chen/mav_px4/src/mav_offboard/include
-Libs: -L${prefix}/lib 
-Requires: eigen_conversions geographic_msgs geometry_msgs mavros roscpp tf tf2_ros message_runtime

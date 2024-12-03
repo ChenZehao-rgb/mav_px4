@@ -1,2 +1,0 @@
-set(mav_offboard_MESSAGE_FILES "/home/chen/mav_px4/src/mav_offboard/msg/MavOffbCtlType.msg")
-set(mav_offboard_SERVICE_FILES "/home/chen/mav_px4/src/mav_offboard/srv/SetMavOffbCtlType.srv;/home/chen/mav_px4/src/mav_offboard/srv/GenTrajOnline.srv;/home/chen/mav_px4/src/mav_offboard/srv/SetTargPoint.srv;/home/chen/mav_px4/src/mav_offboard/srv/IintWayPoints.srv;/home/chen/mav_px4/src/mav_offboard/srv/UpdateBoundOnline.srv")

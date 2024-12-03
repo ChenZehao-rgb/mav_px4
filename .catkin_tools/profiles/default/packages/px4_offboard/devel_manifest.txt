@@ -1,6 +1,0 @@
-px4_offboard
-/home/chen/mav_px4/devel/.private/px4_offboard/cmake.lock /home/chen/mav_px4/devel/./cmake.lock
-/home/chen/mav_px4/devel/.private/px4_offboard/share/px4_offboard/cmake/px4_offboardConfig-version.cmake /home/chen/mav_px4/devel/share/px4_offboard/cmake/px4_offboardConfig-version.cmake
-/home/chen/mav_px4/devel/.private/px4_offboard/share/px4_offboard/cmake/px4_offboardConfig.cmake /home/chen/mav_px4/devel/share/px4_offboard/cmake/px4_offboardConfig.cmake
-/home/chen/mav_px4/devel/.private/px4_offboard/lib/px4_offboard/hello /home/chen/mav_px4/devel/lib/px4_offboard/hello
-/home/chen/mav_px4/devel/.private/px4_offboard/lib/pkgconfig/px4_offboard.pc /home/chen/mav_px4/devel/lib/pkgconfig/px4_offboard.pc

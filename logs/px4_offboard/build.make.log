@@ -1,4 +1,0 @@
-[35m[1mScanning dependencies of target hello[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/hello.dir/src/helloworld.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /home/chen/mav_px4/devel/.private/px4_offboard/lib/px4_offboard/hello[0m
-[100%] Built target hello

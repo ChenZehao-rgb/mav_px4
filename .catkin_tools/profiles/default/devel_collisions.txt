@@ -1,1 +1,1 @@
-/home/chen/mav_px4/devel/./cmake.lock 4
+/home/chen/mav_px4/devel/./cmake.lock 6

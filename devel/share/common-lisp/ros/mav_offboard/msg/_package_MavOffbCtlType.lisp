@@ -1,1 +1,0 @@
-/home/chen/mav_px4/devel/.private/mav_offboard/share/common-lisp/ros/mav_offboard/msg/_package_MavOffbCtlType.lisp

@@ -1,1 +1,0 @@
-/home/chen/mav_px4/devel/.private/mav_offboard/share/common-lisp/ros/mav_offboard/srv/_package_GenTrajOnline.lisp
