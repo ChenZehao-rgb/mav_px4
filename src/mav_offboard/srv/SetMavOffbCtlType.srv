@@ -1,0 +1,3 @@
+mav_offboard/MavOffbCtlType ctlType
+---
+bool success

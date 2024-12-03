@@ -1,0 +1,6 @@
+devel_space: /home/chen/mav_px4/devel
+install: false
+install_space: /home/chen/mav_px4/install
+profile: default
+source_space: /home/chen/mav_px4/src
+workspace: /home/chen/mav_px4

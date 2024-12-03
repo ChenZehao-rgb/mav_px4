@@ -1,0 +1,6 @@
+header:
+  seq:
+  stamp: now
+  frame_id: map
+
+mode: OFFBOARD

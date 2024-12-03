@@ -1,0 +1,31 @@
+<launch>
+    <node name="bag_record" pkg="rosbag" type="record" output="screen"
+        args="mavros/local_position/pose
+            mavros/local_position/velocity_local
+            mavros/state
+            mav_offboard/targ_point_local
+            mavros/gpsstatus/gps1/raw
+            mav_offboard/set_init_way_points
+            mavros/cmd/arming
+            mavros/set_mode
+            mav_offboard/set_init_way_points
+            mavros/setpoint_position/local
+            mavros/setpoint_raw/local
+            mav_offboard/inter_points
+            mav_offboard/set_offb_ctl_type
+            mav_offboard/set_targ_point
+
+            online_traj_generator/gen_traj_online
+            online_traj_generator/ruckig_state
+            online_traj_generator/ruckig_command
+            online_traj_generator/ruckig_targ
+
+            blue_uav_control/blue_state
+            blue1_uav_control/blue1_accept_flag
+            blue2_uav_control/blue2_accept_flag
+            blue1/keyboard_input/b1state_trigger
+            blue2/keyboard_input/b2state_trigger
+            
+            -o $(find mav_offboard)/bag/data">
+    </node>
+</launch>

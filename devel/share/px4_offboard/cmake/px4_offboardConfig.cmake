@@ -1,0 +1,1 @@
+/home/chen/mav_px4/devel/.private/px4_offboard/share/px4_offboard/cmake/px4_offboardConfig.cmake

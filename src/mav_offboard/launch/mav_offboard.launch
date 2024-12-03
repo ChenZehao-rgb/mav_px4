@@ -1,0 +1,28 @@
+<launch>
+  <arg name="use_sim" default="true" />
+  <arg name="use_bag" default="true" />
+  <!-- <arg name="use_visual" default="true" /> -->
+  <!-- <include file="$(find mavros)/launch/px4.launch" if="$(arg use_sim)">
+    <arg name="fcu_url" default="udp://:14540@192.168.1.36:14557" />
+  </include>
+
+  <include file="$(find mavros)/launch/px4.launch" unless="$(arg use_sim)">
+    <arg name="fcu_url" default="serial:///dev/ttyTHS0:230400" />
+  </include>  -->
+
+  <include file="$(find mav_offboard)/launch/bag_record.launch" if="$(arg use_bag)">
+  </include>
+
+  <!-- <include file="$(find uav_udp)/launch/uav_udp.launch" unless="$(arg use_sim)">
+  </include> -->
+  <node name="online_traj_generator" pkg="mav_offboard" type="online_traj_generator_node" respawn="false" output="screen">
+  </node>
+
+  <!-- <include file="$(find visual_task)/launch/visual_task.launch" if="$(arg use_visual)">
+  </include> -->
+
+  <node name="mav_offboard" pkg="mav_offboard" type="mav_offboard_node" respawn="false" output="screen">
+    <param name="is_sim" value="$(arg use_sim)" />
+  </node>
+
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+    <node name="test_goto_point_node" pkg="mav_offboard" type="goto_point_test_node" respawn="false" output="screen">
+    </node>
+    <node pkg="rostopic" type="rostopic" name="goto_point" args="pub -r 1 /mavros/state mavros_msgs/State  -f $(find mav_offboard)/config/test_goto_point_node.yaml" output="screen" />
+</launch>
