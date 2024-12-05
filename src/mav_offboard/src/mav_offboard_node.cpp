@@ -20,15 +20,15 @@ int main(int argc, char *argv[])
     }
     ROS_INFO_STREAM(" Get \" mavros \" srv");
 
-    // wait for traj_generator srv
-    if (!ros::service::waitForService("online_traj_generator/gen_traj_online",
-                                        timeout)) {
-        ROS_ERROR_STREAM(
-            "mav_offboard_onde:  wait service "
-            "\"/online_traj_generator/gen_traj_online\" timeout");
-        return 0;
-    }
-    ROS_INFO_STREAM(" Get \" traj_generator \" srv");
+    // // wait for traj_generator srv
+    // if (!ros::service::waitForService("online_traj_generator/gen_traj_online",
+    //                                     timeout)) {
+    //     ROS_ERROR_STREAM(
+    //         "mav_offboard_onde:  wait service "
+    //         "\"/online_traj_generator/gen_traj_online\" timeout");
+    //     return 0;
+    // }
+    // ROS_INFO_STREAM(" Get \" traj_generator \" srv");
 
     ros::NodeHandle nh;
     bool isSim;
@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 
     ros::AsyncSpinner spinner(3);
     spinner.start();
+    // 传入节点句柄，使用构造函数初始化MavOffboard类
     MavOffboard mavOffboard(nh);
     if (isSim) {
         mavOffboard.setSim(isSim);

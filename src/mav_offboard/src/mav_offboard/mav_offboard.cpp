@@ -22,6 +22,7 @@ void quat2RPY(const geometry_msgs::Quaternion &quat, double &roll,
 
 //Here, the names of topics don't start with "/", indicating that 
 // they are relative paths, which can be prefixed by namespace!
+// 构造函数，可以在创建节点程序中调用，只要传入节点句柄即可
 MavOffboard::MavOffboard(const ros::NodeHandle &nh)  //首先，类后加:表示初始化列表，可使用括号或花括号直接初始化成员变量
     : isSim_(true),
       nh_(nh),
@@ -69,7 +70,7 @@ MavOffboard::MavOffboard(const ros::NodeHandle &nh)  //首先，类后加:表示
     setOffbCtlTypeSer_ = nh_.advertiseService("mav_offboard/set_offb_ctl_type",
                                             &MavOffboard::setOffbCtlType, this);
     setTargPointSer_ = nh_.advertiseService("mav_offboard/set_targ_point",
-                                          &MavOffboard::setTargPoint, this);
+                                          &MavOffboard::setTargPoint, this); //setTargPoint是所编写的服务函数
     initWayPointsSer_ = nh_.advertiseService(
       "mav_offboard/set_init_way_points", &MavOffboard::setInitWayPoints, this);
 
@@ -91,20 +92,22 @@ void MavOffboard::run(){
     ros::Duration(5.0).sleep();
   //每1s执行一次循环
     while(ros::ok()){
-        ros::Duration(1.0).sleep();
+        // ros::Duration(1.0).sleep();
+        ros::spinOnce();
     }
 }
 
 // 初始化控制器类型
 void MavOffboard::init(){
-    // ctlType_.mav_offb_ctl_type = mav_offboard::MavOffbCtlType::GOTO_SETPOINTS_SMOOTH;
+    ctlType_.mav_offb_ctl_type = mav_offboard::MavOffbCtlType::GOTO_SETPOINTS_SMOOTH;
     // ctlType_.mav_offb_ctl_type = MavOffbCtlType::OFFBOARD_IGNORE;
-    ctlType_.mav_offb_ctl_type = mav_offboard::MavOffbCtlType::GOTO_SETPOINT_STEP;
+    // ctlType_.mav_offb_ctl_type = mav_offboard::MavOffbCtlType::GOTO_SETPOINT_STEP;
     // ctlType_.mav_offb_ctl_type = MavOffbCtlType::GOTO_SETPOINT_SMOOTH;
 }
 // 通过回调函数获取无人机的本地位置
 void MavOffboard::uavPoseLocalCb(const geometry_msgs::PoseStamped::ConstPtr &msg){
     uavPoseLocal_ = *msg;
+    ROS_INFO_STREAM_THROTTLE(5, "MavOffboard::uavPoseLocalCb: uavPoseLocal_: " << uavPoseLocal_);
 }
 // 通过回调函数获取无人机的本地速度
 void MavOffboard::uavTwistLocalCb(const geometry_msgs::TwistStamped::ConstPtr &msg){
@@ -223,7 +226,7 @@ void MavOffboard::solveAndsendTraj(){
     TrajSolver3D traj_solver(Control::VEL);
     traj_solver.setPath(path_);
     traj_solver.setV(6); // 速度参数
-    traj_ = traj_solver.solve();
+    traj_ = traj_solver.solve(); //参数为true，打印轨迹信息
     auto prims = traj_.getPrimitives();
     isSetpointsGenetate_ = true;
     // debug info
@@ -352,6 +355,7 @@ void MavOffboard::cmdLoopCb(const ros::TimerEvent &event){
   switch (ctlType_.mav_offb_ctl_type){
     case mav_offboard::MavOffbCtlType::GOTO_SETPOINT_STEP: {
     //更新setpointRawLocal_的时间戳，并发布到setpointRawLocalPub_上
+    //setpointLocal_是目标点，通过服务器setTargPoint()设置
       setpointLocal_.header.stamp = ros::Time::now();
       setpointLocalPub_.publish(setpointLocal_);
       ROS_INFO_STREAM_THROTTLE(

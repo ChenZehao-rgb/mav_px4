@@ -24,6 +24,13 @@
         "hash_map": "cpp",
         "hash_set": "cpp",
         "initializer_list": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "complex": "cpp",
+        "bitset": "cpp",
+        "fstream": "cpp",
+        "limits": "cpp",
+        "sstream": "cpp",
+        "utility": "cpp",
+        "core": "cpp"
     }
 }

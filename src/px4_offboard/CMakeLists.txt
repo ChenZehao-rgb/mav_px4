@@ -9,8 +9,14 @@ project(px4_offboard)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  rospy
   std_msgs
+  geographic_msgs
+  geometry_msgs
+  mav_offboard
+  mavros
+  tf
+  tf2_ros
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions

@@ -8,7 +8,8 @@
       "includePath": [
         "/opt/ros/noetic/include/**",
         "/usr/include/**",
-        "/home/chen/mav_px4/src/mav_offboard/include/**"  // 源代码目录
+        "/home/chen/mav_px4/src/mav_offboard/include/**",  // 源代码目录
+        "/home/chen/mav_px4/src/px4_offboard/include/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",
